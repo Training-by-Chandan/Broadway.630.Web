@@ -4,6 +4,9 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
+
+    @Html.Partial("~/Views/Shared/_PartialCard.cshtml")
+
 <address>
     One Microsoft Way<br />
     Redmond, WA 98052-6399<br />
@@ -15,3 +18,11 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+    @section headerTitle
+{
+        <strong>
+
+        Contact Page
+        </strong>
+    }

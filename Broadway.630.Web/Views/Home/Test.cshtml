@@ -1,8 +1,15 @@
-﻿
+﻿@using Broadway._630.Web.ViewModel
 @{
     ViewBag.Title = "Test";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Test</h2>
+@{
+    var data = RandomPostGenerator.Generate();
+}
 
+<div class="row">
+    <div class="col-6">
+        @Html.Partial("~/Views/PartialComponents/_Post.cshtml", data)
+    </div>
+</div>

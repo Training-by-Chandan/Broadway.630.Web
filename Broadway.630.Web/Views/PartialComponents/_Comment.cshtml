@@ -1,0 +1,15 @@
+﻿@model Broadway._630.Web.ViewModel.CommentsViewModel
+
+<div class="card-comment">
+    <!-- User image -->
+    <img class="img-circle img-sm" src="@Model.CommentorProfilePic" alt="User Image">
+
+    <div class="comment-text">
+        <span class="username">
+            @Model.CommentorName
+            <span class="text-muted float-right">8:03 PM Today</span>
+        </span><!-- /.username -->
+        @Model.CommentText
+    </div>
+    <!-- /.comment-text -->
+</div>

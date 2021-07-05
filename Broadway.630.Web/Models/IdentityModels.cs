@@ -25,6 +25,8 @@ namespace Broadway._630.Web.Models
         {
         }
 
+        public DbSet<Student> Students { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

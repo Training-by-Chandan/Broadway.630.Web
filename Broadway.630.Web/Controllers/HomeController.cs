@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Broadway._630.Web.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,7 +30,9 @@ namespace Broadway._630.Web.Controllers
 
         public ActionResult Test()
         {
-            return View();
+            var data = ControllerService.GetAll();
+
+            return View(data);
         }
     }
 }

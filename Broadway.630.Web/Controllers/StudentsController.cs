@@ -51,6 +51,7 @@ namespace Broadway._630.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                var val = student.Name;
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");

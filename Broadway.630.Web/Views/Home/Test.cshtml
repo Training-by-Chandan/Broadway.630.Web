@@ -1,4 +1,5 @@
 ﻿@using Broadway._630.Web.ViewModel
+@model  List<NameOfControllers>
 @{
     ViewBag.Title = "Test";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,6 +7,13 @@
 
 @{
     var data = RandomPostGenerator.Generate();
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-6">
+        @item.Name => @item.isAuthorised
+    </div>
 }
 
 <div class="row">

@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
@@ -191,13 +192,20 @@
     <Compile Include="Migrations\202107050114377_initialSetup.Designer.cs">
       <DependentUpon>202107050114377_initialSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107060118492_validations.cs" />
+    <Compile Include="Migrations\202107060118492_validations.Designer.cs">
+      <DependentUpon>202107060118492_validations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Service\ControllerService.cs" />
+    <Compile Include="ViewModel\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="ViewModel\ManageViewModels.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\NameOfControllers.cs" />
     <Compile Include="ViewModel\PartialCardViewModel.cs" />
     <Compile Include="ViewModel\PostViewModel.cs" />
   </ItemGroup>
@@ -2233,7 +2241,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Service\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -2251,6 +2259,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107050114377_initialSetup.resx">
       <DependentUpon>202107050114377_initialSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107060118492_validations.resx">
+      <DependentUpon>202107060118492_validations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

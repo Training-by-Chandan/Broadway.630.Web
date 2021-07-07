@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/admintheme/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="~/admintheme/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    @RenderSection("styles", required: false)
     <!-- Theme style -->
     <link rel="stylesheet" href="~/admintheme/dist/css/adminlte.min.css">
 </head>
@@ -147,11 +148,8 @@
     <script src="~/admintheme/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
     <script src="~/admintheme/plugins/chart.js/Chart.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/admintheme/dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="~/admintheme/dist/js/pages/dashboard2.js"></script>
 
     @RenderSection("scripts", required: false)
 

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Broadway._630.Web.Models
 {
@@ -20,5 +21,10 @@ namespace Broadway._630.Web.Models
         [Display(Name = "Student Email", GroupName = "Basic")]
         [DataType(DataType.EmailAddress)]// view
         public string Email { get; set; }
+
+        public string Username { get; set; }
+
+        [ForeignKey("Username")]
+        public virtual ApplicationUser User { get; set; }
     }
 }

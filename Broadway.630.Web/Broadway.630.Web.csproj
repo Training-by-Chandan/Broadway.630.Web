@@ -184,6 +184,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,9 +197,14 @@
     <Compile Include="Migrations\202107060118492_validations.Designer.cs">
       <DependentUpon>202107060118492_validations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107070109438_updatedSTudent.cs" />
+    <Compile Include="Migrations\202107070109438_updatedSTudent.Designer.cs">
+      <DependentUpon>202107070109438_updatedSTudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Service\ControllerService.cs" />
+    <Compile Include="Service\StudentService.cs" />
     <Compile Include="ViewModel\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="ViewModel\ManageViewModels.cs" />
@@ -208,6 +214,7 @@
     <Compile Include="ViewModel\NameOfControllers.cs" />
     <Compile Include="ViewModel\PartialCardViewModel.cs" />
     <Compile Include="ViewModel\PostViewModel.cs" />
+    <Compile Include="ViewModel\StudentListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="admintheme\dist\css\adminlte.css" />
@@ -2238,6 +2245,7 @@
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2262,6 +2270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107060118492_validations.resx">
       <DependentUpon>202107060118492_validations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107070109438_updatedSTudent.resx">
+      <DependentUpon>202107070109438_updatedSTudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

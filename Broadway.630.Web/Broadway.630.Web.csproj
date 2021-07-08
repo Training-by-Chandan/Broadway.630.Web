@@ -214,6 +214,7 @@
     <Compile Include="ViewModel\NameOfControllers.cs" />
     <Compile Include="ViewModel\PartialCardViewModel.cs" />
     <Compile Include="ViewModel\PostViewModel.cs" />
+    <Compile Include="ViewModel\StudentCreateRequestViewModel.cs" />
     <Compile Include="ViewModel\StudentListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2246,6 +2247,9 @@
     <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\_Create.cshtml" />
+    <Content Include="Views\Student\_Edit.cshtml" />
+    <Content Include="Views\Student\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

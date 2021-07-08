@@ -21,5 +21,28 @@ namespace Broadway._630.Web.Service
                 Username = p.User.Id
             }).ToList();
         }
+
+        public StudentCreateResponseViewModel CreateStudent(StudentCreateRequestViewModel model)
+        {
+            var res = new StudentCreateResponseViewModel();
+            try
+            {
+                var student = new Student()
+                {
+                    Name = model.Name,
+                    Address = model.Address,
+                    Email = model.Email,
+                };
+
+                db.Students.Add(student);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                res.Message = ex.Message;
+            }
+
+            return res;
+        }
     }
 }

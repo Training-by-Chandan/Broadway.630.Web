@@ -13,7 +13,7 @@
         }
     </div>*@
 
-
+<button class="btn btn-outline-info btncreate">Create</button>
 <div>
     <table id="student" class="table table-bordered table-striped">
         <thead>
@@ -48,31 +48,31 @@
     </table>
 </div>
 
-<!--modal section -->>
-
-
-<!--modal section -->>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<!--modal section -->
+<form id="modal-form">
+    <div class="modal fade" id="modal-lg">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-lg-title">Large Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-lg-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSave" data-sender="">Save changes</button>
+                </div>
             </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <!-- /.modal-content -->
         </div>
+        <!-- /.modal-dialog -->
     </div>
-</div>
-
-
+</form>
+<!--modal section -->
 
 @section styles{
     <!-- DataTables -->
@@ -106,7 +106,6 @@
                 .container()
                 .appendTo('#example1_wrapper .col-md-6:eq(0)');
 
-
             $('.deletebtn').on('click', function () {
                 Swal.fire({
                     title: 'Are you sure?',
@@ -129,17 +128,72 @@
                 })
             });
 
-
             $('.editbtn').on('click', function () {
-                $('#exampleModalLong').modal('show');
+
+                modalChange('edit', 'Edit Student User', '')
+
+                $('#modal-lg').modal('show');
 
             });
 
             $('.detailsbtn').on('click', function () {
+                modalChange('details', 'Details Student User', '')
 
-
+                $('#modal-lg').modal('show');
             });
 
+            $('.btncreate').on('click', function () {
+                modalChange('create', 'Create Student User', '')
+
+                $('#modal-lg').modal('show');
+            });
+            function modalChange(sender, title, body) {
+                $('#modal-lg-title').html(title);
+                $('#btnSave').data("sender", sender)
+                var dataurl = "";
+                if (sender === "create") {
+                    dataurl = "/student/create"
+                }
+                else if (sender === "edit") {
+                    dataurl = "/student/edit"
+                }
+                else if (sender === "details") {
+                    dataurl = "/student/details"
+                }
+
+                $.ajax({
+                    url: dataurl,
+                    method: 'get',
+                    success: function (data, status) {
+                        $('#modal-lg-body').html(data);
+                    }
+                })
+
+            }
+
+            $('#btnSave').on('click', function () {
+
+                var sender = $('#btnSave').data("sender")
+                var dataurl = "";
+                if (sender === "create") {
+                    dataurl = "/student/create"
+                }
+                else if (sender === "edit") {
+                    dataurl = "/student/edit"
+                }
+                else if (sender === "details") {
+                    dataurl = "/student/details"
+                }
+
+                $.ajax({
+                    url: dataurl,
+                    method: 'post',
+                    data: $('#modal-form').serialize(),
+                    success: function (data, status) {
+                        //location.reload();
+                    }
+                })
+            });
         });
     </script>
 }

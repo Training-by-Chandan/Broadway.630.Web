@@ -28,7 +28,19 @@ namespace Broadway._630.Web.Controllers
         [HttpPost]
         public ActionResult Create(StudentCreateRequestViewModel model)
         {
-            var res = student.CreateStudent(model);
+            //var res = student.CreateStudent(model);
+            if (ModelState.IsValid)
+            {
+                //todo further processing here create user and student
+            }
+            else
+            {
+                //return errors
+                Response.StatusCode = 403;
+                var data = ModelState.Values.SelectMany(p => p.Errors).Select(p => new ErrorViewModel { Value = p.ErrorMessage });
+                return Json(new ResponseViewModel() { Status = false, Data = data });
+            }
+
             return PartialView("_Create");
         }
 

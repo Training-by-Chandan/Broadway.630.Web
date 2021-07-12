@@ -96,6 +96,7 @@
     <script src="~/admintheme/plugins/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="~/admintheme/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <script>
+        var d;
         $(document).ready(function () {
 
             $('#student').DataTable({
@@ -171,6 +172,7 @@
 
             }
 
+               
             $('#btnSave').on('click', function () {
 
                 var sender = $('#btnSave').data("sender")
@@ -184,7 +186,6 @@
                 else if (sender === "details") {
                     dataurl = "/student/details"
                 }
-
                 $.ajax({
                     url: dataurl,
                     method: 'post',
@@ -192,6 +193,18 @@
                     success: function (data, status) {
                         //location.reload();
                     }
+                    
+
+                }).fail(function (data, status) {
+                    console.log(status);
+                    d = data;
+                    //console.log(data.responseJSON);
+                    var str = "";
+                    data.responseJSON.Data.forEach(a => {
+                        console.log(a.Value);
+                        str += "\n" + a.Value;
+                    });
+                        $("#errorlist").append('<span class="alert alert-danger">'+str+'</span>')
                 })
             });
         });

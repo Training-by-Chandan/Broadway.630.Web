@@ -27,6 +27,9 @@ namespace Broadway._630.Web.Service
             var res = new StudentCreateResponseViewModel();
             try
             {
+                //todo create users 
+
+
                 var student = new Student()
                 {
                     Name = model.Name,

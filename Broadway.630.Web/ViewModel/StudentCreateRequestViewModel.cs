@@ -15,15 +15,18 @@ namespace Broadway._630.Web.ViewModel
         public string Address { get; set; }
 
         [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Compare password is required")]
+        [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password and Compare Password does not match")]
         public string ConfirmPassword { get; set; }
     }

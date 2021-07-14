@@ -185,6 +185,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\StudentNewController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,7 +216,9 @@
     <Compile Include="ViewModel\PartialCardViewModel.cs" />
     <Compile Include="ViewModel\PostViewModel.cs" />
     <Compile Include="ViewModel\StudentCreateRequestViewModel.cs" />
+    <Compile Include="ViewModel\StudentEditRequestViewModel.cs" />
     <Compile Include="ViewModel\StudentListViewModel.cs" />
+    <Compile Include="ViewModel\UserPasswordResetRequestViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="admintheme\dist\css\adminlte.css" />
@@ -2250,6 +2253,9 @@
     <Content Include="Views\Student\_Create.cshtml" />
     <Content Include="Views\Student\_Edit.cshtml" />
     <Content Include="Views\Student\_Details.cshtml" />
+    <Content Include="Views\StudentNew\Index.cshtml" />
+    <Content Include="Views\StudentNew\Create.cshtml" />
+    <Content Include="Views\StudentNew\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -27,8 +27,7 @@ namespace Broadway._630.Web.Service
             var res = new StudentCreateResponseViewModel();
             try
             {
-                //todo create users 
-
+                //todo create users
 
                 var student = new Student()
                 {
@@ -46,6 +45,25 @@ namespace Broadway._630.Web.Service
             }
 
             return res;
+        }
+
+        public StudentEditRequestViewModel GetStudentDetails(int id)
+        {
+            var data = db.Students.Find(id);
+            if (data != null)
+            {
+                return new StudentEditRequestViewModel()
+                {
+                    Name = data.Name,
+                    Id = data.Id,
+                    Address = data.Address,
+                    Email = data.Email
+                };
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

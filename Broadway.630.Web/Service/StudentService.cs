@@ -1,5 +1,7 @@
 ﻿using Broadway._630.Web.Models;
 using Broadway._630.Web.ViewModel;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,16 +30,25 @@ namespace Broadway._630.Web.Service
             try
             {
                 //todo create users
-
-                var student = new Student()
+                if (!(db.Users.Any(u => u.UserName == model.Username)))
                 {
-                    Name = model.Name,
-                    Address = model.Address,
-                    Email = model.Email,
-                };
+                    var userStore = new UserStore<ApplicationUser>(db);
+                    var userManager = new UserManager<ApplicationUser>(userStore);
+                    var userToInsert = new ApplicationUser { UserName = model.Username, Email = model.Email };
+                    userManager.Create(userToInsert, model.Password);
 
-                db.Students.Add(student);
-                db.SaveChanges();
+                    userManager.AddToRole(userToInsert.Id, ConstString.Roles.Student);
+
+                    var student = new Student()
+                    {
+                        Name = model.Name,
+                        Address = model.Address,
+                        Email = model.Email,
+                    };
+
+                    db.Students.Add(student);
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {

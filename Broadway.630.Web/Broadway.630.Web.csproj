@@ -203,10 +203,19 @@
     <Compile Include="Migrations\202107070109438_updatedSTudent.Designer.cs">
       <DependentUpon>202107070109438_updatedSTudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107150129431_userIdUpdated.cs" />
+    <Compile Include="Migrations\202107150129431_userIdUpdated.Designer.cs">
+      <DependentUpon>202107150129431_userIdUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107150138131_avatar.cs" />
+    <Compile Include="Migrations\202107150138131_avatar.Designer.cs">
+      <DependentUpon>202107150138131_avatar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Service\ControllerService.cs" />
     <Compile Include="Service\StudentService.cs" />
+    <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModel\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="ViewModel\ManageViewModels.cs" />
@@ -2257,9 +2266,11 @@
     <Content Include="Views\StudentNew\Index.cshtml" />
     <Content Include="Views\StudentNew\Create.cshtml" />
     <Content Include="Views\StudentNew\Edit.cshtml" />
+    <Content Include="Views\StudentNew\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Avatar\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
@@ -2284,6 +2295,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107070109438_updatedSTudent.resx">
       <DependentUpon>202107070109438_updatedSTudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107150129431_userIdUpdated.resx">
+      <DependentUpon>202107150129431_userIdUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107150138131_avatar.resx">
+      <DependentUpon>202107150138131_avatar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

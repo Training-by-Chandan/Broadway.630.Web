@@ -8,6 +8,8 @@ namespace Broadway._630.Web.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public string Avatar { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

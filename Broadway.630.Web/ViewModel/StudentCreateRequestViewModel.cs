@@ -29,6 +29,8 @@ namespace Broadway._630.Web.ViewModel
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password and Compare Password does not match")]
         public string ConfirmPassword { get; set; }
+
+        public string Avatar { get; set; }
     }
 
     public class StudentCreateResponseViewModel : ResponseViewModel

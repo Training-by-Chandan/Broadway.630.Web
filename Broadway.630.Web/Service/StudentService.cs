@@ -20,7 +20,7 @@ namespace Broadway._630.Web.Service
                 Id = p.Id,
                 Name = p.Name,
                 Email = p.Email,
-                Username = p.User.Id
+                Username = p.User.UserName
             }).ToList();
         }
 
@@ -34,7 +34,12 @@ namespace Broadway._630.Web.Service
                 {
                     var userStore = new UserStore<ApplicationUser>(db);
                     var userManager = new UserManager<ApplicationUser>(userStore);
-                    var userToInsert = new ApplicationUser { UserName = model.Username, Email = model.Email };
+                    var userToInsert = new ApplicationUser
+                    {
+                        UserName = model.Username,
+                        Email = model.Email,
+                        Avatar = model.Avatar
+                    };
                     userManager.Create(userToInsert, model.Password);
 
                     userManager.AddToRole(userToInsert.Id, ConstString.Roles.Student);
@@ -44,6 +49,7 @@ namespace Broadway._630.Web.Service
                         Name = model.Name,
                         Address = model.Address,
                         Email = model.Email,
+                        UserId = userToInsert.Id
                     };
 
                     db.Students.Add(student);
@@ -58,7 +64,7 @@ namespace Broadway._630.Web.Service
             return res;
         }
 
-        public StudentEditRequestViewModel GetStudentDetails(int id)
+        public StudentEditRequestViewModel GetStudentDetailsForEdit(int id)
         {
             var data = db.Students.Find(id);
             if (data != null)
@@ -75,6 +81,58 @@ namespace Broadway._630.Web.Service
             {
                 return null;
             }
+        }
+
+        public StudentDetailsViewModel GetStudentDetails(int id)
+        {
+            var data = db.Students.Find(id);
+            if (data != null)
+            {
+                return new StudentDetailsViewModel()
+                {
+                    Name = data.Name,
+                    Id = data.Id,
+                    Address = data.Address,
+                    Email = data.Email,
+                    Username = data.User == null ? "" : data.User.UserName,
+                    Avatar = data.User == null ? "" : data.User.Avatar
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public StudentEditResponseViewModel EditStudent(StudentEditRequestViewModel model)
+        {
+            var res = new StudentEditResponseViewModel();
+            try
+            {
+                var student = db.Students.Find(model.Id);
+                if (student != null)
+                {
+                    student.Address = model.Address;
+                    student.Email = model.Email;
+                    student.Name = model.Name;
+
+                    db.Entry(student).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+
+                    res.Status = true;
+                    res.Message = "Student Updated Successfully";
+                }
+                else
+                {
+                    res.Message = "Student Not Found";
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Message = ex.Message;
+            }
+
+            return res;
         }
     }
 }

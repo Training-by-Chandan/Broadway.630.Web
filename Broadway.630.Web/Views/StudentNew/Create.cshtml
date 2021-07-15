@@ -6,8 +6,9 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) // default path is same as that of form viewpage and default action method is post
+@using (Html.BeginForm("Create", "StudentNew", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    // default path is same as that of form viewpage and default action method is post
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -59,6 +60,12 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Avatar", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" class="form-control" name="avatar_file" />
             </div>
         </div>
 

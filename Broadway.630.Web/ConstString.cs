@@ -13,5 +13,10 @@ namespace Broadway._630.Web
             public const string Student = "Student";
             public const string Teacher = "Teacher";
         }
+
+        public class Default
+        {
+            public const string Avatar = "/admintheme/dist/img/avatar.png";
+        }
     }
 }

@@ -22,9 +22,9 @@ namespace Broadway._630.Web.Models
         [DataType(DataType.EmailAddress)]// view
         public string Email { get; set; }
 
-        public string Username { get; set; }
+        public string UserId { get; set; }
 
-        [ForeignKey("Username")]
+        [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
     }
 }

@@ -7,6 +7,15 @@
     @Html.ActionLink("Create New Student", "Create")
 </div>
 
+@{
+    var studentinSession = Session[ConstString.Sessions.StudentKey] as List<int>;
+    var studentCount = studentinSession == null ? 0 : studentinSession.Count;
+}
+
+<div class="row">
+    Items in Sesion = @studentCount
+</div>
+
 <div>
     <table id="student" class="table table-bordered table-striped">
         <thead>
@@ -36,6 +45,12 @@
                         </a>
                         <a href="#" class="btn btn-outline-info deletebtn">
                             <i class="fa fa-recycle"></i>
+                        </a>
+                        <a href="@Url.Action("AddToSession", new { Id=item.Id })" class="btn btn-outline-info">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <a href="@Url.Action("AddToCookie", new { Id=item.Id })" class="btn btn-outline-info">
+                            <i class="fa fa-cookie"></i>
                         </a>
                     </td>
                 </tr>

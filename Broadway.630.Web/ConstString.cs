@@ -18,5 +18,14 @@ namespace Broadway._630.Web
         {
             public const string Avatar = "/admintheme/dist/img/avatar.png";
         }
+
+        public class Sessions
+        {
+            public const string StudentKey = "StudentKey";
+        }
+        public class Cookies
+        {
+            public const string StudentKey = "StudentKey";
+        }
     }
 }

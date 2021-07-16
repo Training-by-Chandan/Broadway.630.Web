@@ -65,10 +65,27 @@ namespace Broadway._630.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
         public ActionResult Edit(StudentEditRequestViewModel model)
         {
             if (ModelState.IsValid)
             {
+                var file = Request.Files[0];
+                if (file.ContentLength > 0)
+                {
+                    var ext = System.IO.Path.GetExtension(file.FileName);
+                    var filenameTobeSaved = Guid.NewGuid().ToString() + ext;
+                    var path = "/Assets/Avatar/" + filenameTobeSaved;
+
+                    file.SaveAs(Server.MapPath(path));
+
+                    if (model.Avatar != ConstString.Default.Avatar)
+                    {
+                        System.IO.File.Delete(Server.MapPath(model.Avatar));
+                    }
+
+                    model.Avatar = path;
+                }
                 //send request to the service to edit the record;
                 var res = student.EditStudent(model);
                 if (res.Status)
@@ -91,6 +108,35 @@ namespace Broadway._630.Web.Controllers
                 //todo fetch the data from student service
                 var data = student.GetStudentDetails(id.Value);
                 return View(data);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult AddToSession(int? id)
+        {
+            if (id != null)
+            {
+                var obj = Session[ConstString.Sessions.StudentKey] as List<int>;
+                if (obj == null)
+                    obj = new List<int>();
+
+                obj.Add(id.Value);
+                Session.Add(ConstString.Sessions.StudentKey, obj);
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult AddToCookie(int? id)
+        {
+            if (id != null)
+            {
+                var cookie = Request.Cookies[ConstString.Cookies.StudentKey].Value;
+                var studentCookie = new HttpCookie(ConstString.Cookies.StudentKey, cookie + "," + id.Value.ToString());
+                studentCookie.Expires = DateTime.Now.AddDays(365);
+                Response.Cookies.Add(studentCookie);
+                
             }
             return RedirectToAction("Index");
         }

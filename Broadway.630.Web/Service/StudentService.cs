@@ -74,7 +74,8 @@ namespace Broadway._630.Web.Service
                     Name = data.Name,
                     Id = data.Id,
                     Address = data.Address,
-                    Email = data.Email
+                    Email = data.Email,
+                    Avatar = data.User == null ? "" : data.User.Avatar
                 };
             }
             else
@@ -115,7 +116,11 @@ namespace Broadway._630.Web.Service
                     student.Address = model.Address;
                     student.Email = model.Email;
                     student.Name = model.Name;
-
+                    if (student.User != null && model.Avatar!=ConstString.Default.Avatar)
+                    {
+                        student.User.Avatar = model.Avatar;
+                    }
+                    //todo find the way to create the user first
                     db.Entry(student).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 

@@ -6,7 +6,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "StudentNew", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -37,6 +37,14 @@
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
+        </div>
+        @Html.HiddenFor(model => model.Avatar)
+        <div class="form-group">
+            @Html.Label("Avatar", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" class="form-control" name="avatar_file" />
+            </div>
+            <img src="@Model.Avatar" width="100" height="100" />
         </div>
 
         <div class="form-group">

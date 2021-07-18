@@ -113,6 +113,7 @@ namespace Broadway._630.Web.Controllers
         }
 
         [HttpGet]
+        [Route(Name = "New")]
         public ActionResult AddToSession(int? id)
         {
             if (id != null)
@@ -136,7 +137,6 @@ namespace Broadway._630.Web.Controllers
                 var studentCookie = new HttpCookie(ConstString.Cookies.StudentKey, cookie + "," + id.Value.ToString());
                 studentCookie.Expires = DateTime.Now.AddDays(365);
                 Response.Cookies.Add(studentCookie);
-                
             }
             return RedirectToAction("Index");
         }

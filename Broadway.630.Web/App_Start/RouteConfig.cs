@@ -13,11 +13,17 @@ namespace Broadway._630.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
             );
+           // routes.MapRoute(
+           //    name: "New",
+           //    url: "new/{controller}/{action}",
+           //    defaults: new { controller = "Account", action = "Login" }
+           //);
         }
     }
 }

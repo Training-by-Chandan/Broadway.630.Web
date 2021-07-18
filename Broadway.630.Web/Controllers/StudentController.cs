@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Broadway._630.Web.Controllers
 {
+    [Route(Name = "New")]
     public class StudentController : Controller
     {
         private StudentService student = new StudentService();

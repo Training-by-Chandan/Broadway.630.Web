@@ -180,6 +180,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Student\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Student\StudentAreaRegistration.cs" />
+    <Compile Include="Areas\Teacher\Controllers\TeacherController.cs" />
+    <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="ConstString.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
@@ -2202,6 +2206,14 @@
     <Content Include="admintheme\plugins\summernote\summernote.js.map" />
     <Content Include="admintheme\plugins\summernote\summernote.min.js.map" />
     <Content Include="admintheme\plugins\toastr\toastr.js.map" />
+    <Content Include="Areas\Teacher\Views\web.config" />
+    <Content Include="Areas\Student\Views\web.config" />
+    <Content Include="Areas\Teacher\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Teacher\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Teacher\Views\Teacher\Index.cshtml" />
+    <Content Include="Areas\Student\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Student\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Student\Views\Default\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2270,6 +2282,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Student\Data\" />
+    <Folder Include="Areas\Teacher\Data\" />
     <Folder Include="Assets\Avatar\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>

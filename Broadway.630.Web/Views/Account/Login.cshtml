@@ -55,11 +55,17 @@
             <p class="mb-1">
                 <a href="#">I forgot my password</a>
             </p>
+            <div class="col-md-12">
+                <section id="socialLoginForm">
+                    @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>
         </div>
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
 </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

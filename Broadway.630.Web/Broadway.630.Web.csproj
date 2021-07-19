@@ -218,6 +218,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Service\ControllerService.cs" />
+    <Compile Include="Service\EmailService.cs" />
     <Compile Include="Service\StudentService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="ViewModel\AccountViewModels.cs" />

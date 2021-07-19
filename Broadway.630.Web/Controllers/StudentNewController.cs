@@ -140,5 +140,11 @@ namespace Broadway._630.Web.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult SendEmail(string username, string email)
+        {
+            Service.EmailService.SendEmail(email, username);
+            return RedirectToAction("Index");
+        }
     }
 }

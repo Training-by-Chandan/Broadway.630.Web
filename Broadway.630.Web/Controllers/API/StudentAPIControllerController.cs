@@ -13,9 +13,9 @@ namespace Broadway._630.Web.Controllers.API
     public class StudentAPIController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
 
         [HttpGet]
+        [Authorize]
         public List<StudentListViewModel> GetAllStudents()
         {
             return db.Students.Select(p => new StudentListViewModel
@@ -43,7 +43,6 @@ namespace Broadway._630.Web.Controllers.API
             }
         }
 
-
         [HttpPut]
         public IHttpActionResult EditStudent(StudentCreateRequestViewModel model)
         {
@@ -61,7 +60,6 @@ namespace Broadway._630.Web.Controllers.API
             }
         }
 
-
         [HttpDelete]
         public IHttpActionResult DeleteStudent(StudentCreateRequestViewModel model)
         {
@@ -78,7 +76,5 @@ namespace Broadway._630.Web.Controllers.API
                 return BadRequest(responseStr);
             }
         }
-
-
     }
 }

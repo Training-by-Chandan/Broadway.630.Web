@@ -10,11 +10,17 @@ namespace Broadway._630.Web.Controllers.API
     public class ErrorAPIController : ApiController
     {
         // GET: ErrorAPI
+        [System.Web.Http.HttpGet]
         public object Index()
         {
-            var responsemessage = new { status = false, message = "Unauthenticated" };
-            HttpContext.Current.Response.StatusCode = 401;
-            return responsemessage;
+            try
+            {
+                throw new NotImplementedException("This function is not implemented");
+            }
+            catch (Exception)
+            {
+            }
+            return null;
         }
     }
 }

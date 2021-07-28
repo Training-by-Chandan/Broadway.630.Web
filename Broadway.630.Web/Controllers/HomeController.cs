@@ -9,8 +9,12 @@ namespace Broadway._630.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int id = 1)
         {
+            if (id == 0)
+            {
+                return null;
+            }
             return View();
         }
 

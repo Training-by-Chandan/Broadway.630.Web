@@ -5,6 +5,7 @@ namespace Broadway._630.Web.Models
 {
     public class Student
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

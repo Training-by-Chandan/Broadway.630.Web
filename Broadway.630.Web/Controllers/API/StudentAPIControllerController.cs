@@ -76,5 +76,43 @@ namespace Broadway._630.Web.Controllers.API
                 return BadRequest(responseStr);
             }
         }
+
+        public IHttpActionResult TestApi(List<People> list)
+        {
+            return Ok();
+        }
+    }
+
+    public class People
+    {
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+    }
+
+    public class Rootobject
+    {
+        public List[] list { get; set; }
+    }
+
+    public class List
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public Address Address { get; set; }
+    }
+
+    public class Address
+    {
+        public Permanent Permanent { get; set; }
+        public Permanent CurrentAddress { get; set; }
+    }
+
+    public class Permanent
+    {
+        public string MainAdress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
     }
 }

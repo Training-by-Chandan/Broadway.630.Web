@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Reporting.WebForms;
+using System.Web.UI.WebControls;
 
 namespace Broadway._630.Web.Controllers
 {
@@ -37,6 +39,11 @@ namespace Broadway._630.Web.Controllers
             var data = ControllerService.GetAll();
 
             return View(data);
+        }
+
+        public ActionResult GeneralReport()
+        {
+            return View();
         }
     }
 }
